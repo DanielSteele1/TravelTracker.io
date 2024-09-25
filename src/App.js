@@ -5,7 +5,6 @@ import 'leaflet/dist/leaflet.css';
 
 function Navigation() {
 
-
   return (
     <div className="navigation">
       <div className="nav-left">
@@ -49,19 +48,10 @@ function Map() {
         })
         .catch(error => console.error('Error fetching the GeoJSON data:', error));
 
-      var map = L.map('map').setView([51.505, -0.09], 3);
-
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      var customIcon = L.icon({
-
-        iconUrl: 'map-marker-512.png',
-        iconSize: [40, 43],
-        iconAnchor: [25, 50],
-        popupAnchor: [0, -50]
-      });
 
       // london - test marker 
       L.marker([51.5072, 0.1276], { icon: customIcon }).addTo(map)
