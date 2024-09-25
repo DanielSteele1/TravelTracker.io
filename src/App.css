@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction:column;
+  position:relative;
+  min-height: 100vh;
+}
+
+.content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
 }
 
 .App-logo {
@@ -35,4 +45,171 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+html, body {
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+a {
+
+color:rgb(255, 90, 90);
+padding: 3px;
+}
+
+.leaflet-control-zoom.leaflet-bar.leaflet-control {
+
+  border: none;
+}
+
+
+.leaflet-control-zoom-out, .leaflet-control-zoom-in {
+
+  height:25px !important;
+  width:25px !important;
+  padding: 10px !important;
+  margin-bottom: 10px !important;
+  border: none !important;
+  border-radius: 5px !important;
+  background-color: #282c34 !important;
+  color:rgb(255, 90, 90) !important;
+  font: 18px !important;
+}
+
+.leaflet-control-zoom-in:hover, .leaflet-control-zoom-out:hover {
+  background-color: #3c4049 !important;
+}
+
+.navigation {
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-color: #282c34;
+  color: rgb(255, 90, 90);
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  padding: 10px;
+  justify-content: space-between;
+
+}
+
+.nav-left {
+
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  align-items: center;
+}
+
+.nav-right {
+
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  align-items: center;
+}
+
+.nav-item {
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 15px;
+
+}
+
+#map {
+  flex: 1;
+  max-width: 100%;
+  margin-top:55px; 
+  background-color:#000000b7;
+  position: relative;
+  z-index:1;
+}
+
+.main-menu{ 
+display:flex;
+height: fit-content;
+width:fit-content;
+display: flex;
+justify-content: center;
+flex-direction: column;
+top: 20%;
+right: 0;
+color: rgb(255, 90, 90);
+font-size: 15px;
+z-index: 10;
+position:absolute;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+background-color:rgba(40, 44, 52, 0.7);
+
+}
+
+.menu-item {
+  margin: 10px;
+  background-color: rgba(40, 44, 52, 0.6);
+  border-radius: 5px;
+  height: 60px;
+
+}
+
+.menu-item:hover {
+  background-color: rgba(40, 44, 52, 0.7);
+  cursor: pointer;
+}
+
+
+#hide-button {
+
+  display:flex;
+  height: 35px;
+  width: fit-content;
+  align-items: center;
+  cursor:pointer;
+  border:none;
+  color:rgb(255, 90, 90);
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: rgba(40, 44, 52);
+  position: absolute;
+  margin: 10px;
+  right:0;
+  position:absolute;
+  top: 13%;
+  padding: 10px;
+  z-index: 10;
+
+}
+
+#add-marker {
+  background-color: transparent;
+  border: none;
+}
+
+.footer{
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+height: 55px;
+width: 100%;
+background-color:#282c34;
+position: relative;
+bottom: 0;
+z-index: 10;
+color: rgb(255, 90, 90);
 }
