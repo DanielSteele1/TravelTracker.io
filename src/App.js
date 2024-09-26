@@ -117,6 +117,16 @@ function MainMenu() {
             <img src="add-marker.png" />
           </button>
         </div>
+        <div className="menu-item">
+        <button id="add-marker" title="Add a Marker" alt="add-marker">
+            <img src="add-marker.png" />
+          </button>
+        </div>
+        <div className="menu-item">
+        <button id="add-marker" title="Add a Marker" alt="add-marker">
+            <img src="add-marker.png" />
+          </button>
+        </div>
       </div>
       
     </>
