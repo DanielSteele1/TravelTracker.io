@@ -72,12 +72,13 @@ function MainMenu() {
       const mainMenu = document.getElementsByClassName("main-menu");
 
       for (let i = 0; i < mainMenu.length; i++) {
-        if (mainMenu[i].style.display === "none" || mainMenu[i].style.display === "") {
-          mainMenu[i].style.display = "block";
-          hideButton.textContent = "Hide";
+        if (mainMenu[i].classList.contains("hidden")) {
+          mainMenu[i].classList.remove("hidden");
+          hideButton.textContent = "Hide Menu";
+
         } else {
-          mainMenu[i].style.display = "none";
-          hideButton.textContent = "Show";
+          mainMenu[i].classList.add("hidden");
+          hideButton.textContent = "Show Menu";
         }
       }
     }
@@ -92,9 +93,10 @@ function MainMenu() {
   return (
     <>
       <div className="button-draw">
-        <button id="hide-button" title="Hide Menu" onclick="hideButton()"> Hide </button>
+        <button id="hide-button" title="Hide Menu" onclick="hideButton()"> Hide Menu </button>
       </div>
       <div className="main-menu">
+        
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">
             <img src="add-marker.png" />
@@ -116,6 +118,7 @@ function MainMenu() {
           </button>
         </div>
       </div>
+      
     </>
   );
 }
