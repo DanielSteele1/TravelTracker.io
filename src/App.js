@@ -3,7 +3,7 @@ import './App.css';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import MapboxExample from './map';
-
+import LayerMenu from './layer-menu';
 
 
 function Navigation() {
@@ -24,49 +24,6 @@ function Navigation() {
   );
 }
 
-// function Map() {
-//   useEffect(() => {
-//     const mapElement = document.getElementById('map');
-//     if (!mapElement._leaflet_id) {
-//       const map = L.map('map').setView([51.505, -0.09], 3);
-
-//       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//       }).addTo(map);
-
-//       const customIcon = L.icon({
-//         iconUrl: 'map-marker-512.png',
-//         iconSize: [40, 43],
-//         iconAnchor: [25, 50],
-//         popupAnchor: [0, -50]
-//       });
-
-//       // Add a test marker
-//       L.marker([51.5072, 0.1276], { icon: customIcon }).addTo(map).openPopup();
-
-//       fetch('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_land.geojson')
-//         .then(response => response.json())
-//         .then(data => {
-//           L.geoJson(data).addTo(map);
-//         })
-//         .catch(error => console.error('Error fetching the GeoJSON data:', error));
-
-//       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//       }).addTo(map);
-
-
-//       // london - test marker 
-//       L.marker([51.5072, 0.1276], { icon: customIcon }).addTo(map)
-//         .openPopup();
-
-//     }
-//   }, []);
-
-//   return (
-//     <div id="map" style={{ height: '500px' }}></div>
-//   );
-// }
 
 function MainMenu() {
   useEffect(() => {
@@ -149,6 +106,8 @@ function App() {
       <div className="content">
         <MapboxExample />
         <MainMenu />
+        <LayerMenu />
+
       </div>
       <Footer />
     </div>
