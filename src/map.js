@@ -15,16 +15,18 @@ const MapboxExample = () => {
       zoom: 2 // starting zoom
     });
 
+    //example marker - london
+
     new mapboxgl.Marker()
-    .setLngLat([51.509865, 	-0.118092])
+    .setLngLat([-0.127758,51.507351])
     .addTo(mapRef.current);
 
     new mapboxgl.Marker()
-    .setLngLat([51.5072, 0.1276])
+    .setLngLat([-74.005974,40.712776])
     .addTo(mapRef.current);
 
     new mapboxgl.Marker()
-    .setLngLat([51.5072, 0.1276])
+    .setLngLat([37.617298, 55.755825])
     .addTo(mapRef.current);
   });
 
