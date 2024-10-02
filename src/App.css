@@ -88,6 +88,51 @@ a {
   background-color: #3c4049 !important;
 }
 
+
+#light {
+  background-color: rgb(231, 228, 228);
+}
+
+#dark {
+  background-color: #282c34;
+}
+
+#light .navigation, #light .footer {
+  background-color: rgb(231, 228, 228);
+
+}
+
+#light .menu-item, #light .map-layer-item, #light #hide-button {
+
+  background-color: rgb(255, 255, 255);
+
+}
+
+#light .main-menu, #light .map-layer-menu {
+  background-color: rgb(231, 228, 228);
+  opacity: 0.9;
+}
+
+#dark .navigation, #dark .footer {
+  background-color: #282c34;
+
+}
+
+
+#theme-button {
+
+  background-color: transparent;
+  border: none;
+  padding: none;
+  margin: 10px;
+}
+
+#theme-button:hover {
+
+  transform: translateY(-2px);
+  transition: 1s ease-out;
+}
+
 .navigation {
 
   display: flex;
@@ -98,7 +143,6 @@ a {
   position: fixed;
   z-index: 1;
   top: 0;
-  background-color: #282c34;
   color: rgb(255, 90, 90);
   font-size: 18px;
   font-family: "Open Sans", sans-serif;
@@ -254,7 +298,6 @@ a {
   align-items: center;
   height: 55px;
   width: 100%;
-  background-color: #282c34;
   position: relative;
   bottom: 0;
   z-index: 10;

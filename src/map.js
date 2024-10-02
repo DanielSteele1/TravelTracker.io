@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const MapboxExample = () => {
+const Mapbox = () => {
   const mapContainerRef = useRef();
   const mapRef = useRef();
 
@@ -39,4 +39,4 @@ const MapboxExample = () => {
   );
 };
 
-export default MapboxExample;
+export default Mapbox;
