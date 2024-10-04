@@ -65,9 +65,9 @@ function MainMenu() {
 
   return (
     <>
-      <div className="button-draw">
+
         <button id="hide-button" title="Hide Menu" onclick="hideButton()"> Hide Menu </button>
-      </div>
+
       <div className="main-menu">
 
         <div className="menu-item">
