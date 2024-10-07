@@ -6,8 +6,25 @@ const Mapbox = () => {
   const mapContainerRef = useRef();
   const mapRef = useRef();
 
+  function getMousePosition(event) {
+
+    let X = event.ClientX;
+    let Y = event.ClientY;
+
+  }
+
+
   useEffect(() => {
+
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiZHN0ZWVsZTIyIiwiYSI6ImNtMWt2cWs4NTAzYXYybXF2dDM1cmNtazIifQ.aXhlnjtOVio05U9yMU101g';
+
+    mapRef.current = new mapboxgl.Map({
+      container: mapContainerRef.current,
+      center: [-0.1404545, 51.5220163], // starting position [lng, lat]
+      zoom: 2 // starting zoom
+    });
+
 
     const geojson = {
       type: 'FeatureCollection',
@@ -44,14 +61,16 @@ const Mapbox = () => {
 
     }
 
+    // when a user clicks on the map, place a marker
+    mapRef.current.on('click', (e) => {
 
-    mapRef.current = new mapboxgl.Map({
-      container: mapContainerRef.current,
-      center: [-0.1404545, 51.5220163], // starting position [lng, lat]
-      zoom: 2 // starting zoom
+      const {lng, lat} = e.lngLat;
+
+      new mapboxgl.Marker()
+      .setLngLat([lng, lat])
+      .addTo(mapRef.current);
+
     });
-
-
 
     //example marker - london
 
