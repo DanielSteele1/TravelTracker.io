@@ -56,12 +56,20 @@ function MainMenu() {
       }
     }
 
+
+
     document.getElementById("hide-button").addEventListener("click", hideButton);
 
     return () => {
       document.getElementById("hide-button").removeEventListener("click", hideButton);
     };
   }, []);
+
+  const [canPlaceMarker, setCanPlaceMarker] = useState(false);
+
+  const toggleMarker = () => {
+    setCanPlaceMarker((prev) => !prev);
+  };
 
   return (
     <>
@@ -71,9 +79,11 @@ function MainMenu() {
       <div className="main-menu">
 
         <div className="menu-item">
-          <button id="add-marker" title="Add a Marker" alt="add-marker">
+          <button id="add-marker" title="Add a Marker" alt="add-marker" onClick={toggleMarker}>
+          {canPlaceMarker ? 'Disable Marker Placement' : 'Enable Marker Placement'}
             <img src="add-marker.png" />
           </button>
+          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
         </div>
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">

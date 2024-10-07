@@ -1,21 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const Mapbox = () => {
+const Mapbox = ({canPlaceMarker, toggleMarker}) => {
+  console.log('Props received in Mapbox:', { canPlaceMarker, toggleMarker });
   const mapContainerRef = useRef();
   const mapRef = useRef();
 
-  function getMousePosition(event) {
 
-    let X = event.ClientX;
-    let Y = event.ClientY;
-
-  }
-
+  //state to place marker, if true, user can place one
 
   useEffect(() => {
-
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZHN0ZWVsZTIyIiwiYSI6ImNtMWt2cWs4NTAzYXYybXF2dDM1cmNtazIifQ.aXhlnjtOVio05U9yMU101g';
 
@@ -24,7 +19,6 @@ const Mapbox = () => {
       center: [-0.1404545, 51.5220163], // starting position [lng, lat]
       zoom: 2 // starting zoom
     });
-
 
     const geojson = {
       type: 'FeatureCollection',
@@ -55,7 +49,7 @@ const Mapbox = () => {
     };
 
 
-    for (const feature of geojson.features){
+    for (const feature of geojson.features) {
 
       new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(mapRef.current);
 
@@ -64,34 +58,47 @@ const Mapbox = () => {
     // when a user clicks on the map, place a marker
     mapRef.current.on('click', (e) => {
 
-      const {lng, lat} = e.lngLat;
+      console.log('Map Clicked', canPlaceMarker);
 
-      new mapboxgl.Marker()
-      .setLngLat([lng, lat])
-      .addTo(mapRef.current);
+      if (canPlaceMarker) {
+        const { lng, lat } = e.lngLat;
+
+        new mapboxgl.Marker()
+          .setLngLat([lng, lat])
+          .addTo(mapRef.current);
+
+          console.log("toggleMarker is:", toggleMarker);
+        toggleMarker();
+
+      }
 
     });
 
-    //example marker - london
 
-    new mapboxgl.Marker()
-    .setLngLat([-0.127758,51.507351])
+  //example marker - london
+
+  new mapboxgl.Marker()
+    .setLngLat([-0.127758, 51.507351])
     .addTo(mapRef.current);
 
-    new mapboxgl.Marker()
-    .setLngLat([-74.005974,40.712776])
+  new mapboxgl.Marker()
+    .setLngLat([-74.005974, 40.712776])
     .addTo(mapRef.current);
 
+    return () => { 
+      mapRef.current.remove(); 
+      mapRef.current.off('click');
+    };
+  }, [canPlaceMarker, toggleMarker]);
 
-  });
 
-  return (
-    <div
-      style={{ height: '865px' }}
-      ref={mapContainerRef}
-      className="map"
-    />
-  );
+return (
+  <div
+    style={{ height: '865px' }}
+    ref={mapContainerRef}
+    className="map"
+  />
+);
 };
 
 export default Mapbox;
