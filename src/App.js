@@ -26,7 +26,7 @@ function Navigation({ theme, toggleTheme}) {
           </div>
 
           <div className="nav-item"> Map </div>
-
+  
           <div className="nav-item"> Accounts </div>
         </div>
       </div>
@@ -83,7 +83,6 @@ function MainMenu() {
           {canPlaceMarker ? 'Disable Marker Placement' : 'Enable Marker Placement'}
             <img src="add-marker.png" />
           </button>
-          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
         </div>
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">
@@ -131,13 +130,20 @@ function App() {
 
   }
 
+  const [canPlaceMarker, setCanPlaceMarker] = useState(false);
+
+  const toggleMarker = () => {
+    setCanPlaceMarker((prev) => !prev);
+  };
+
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
         <Navigation theme={theme} toggleTheme={toggleTheme} />
 
         <div className="content">
-          <Mapbox />
+          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker}/>
           <MainMenu />
           <LayerMenu />
 
