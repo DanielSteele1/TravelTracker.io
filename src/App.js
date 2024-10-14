@@ -29,10 +29,18 @@ function Navigation({ theme, toggleTheme }) {
           <div className="nav-item"> TravelTracker.io </div>
         </div>
         <div className="nav-right">
-          <Paper component="form"  sx={{ p: '2px 4px', height: '35px', width: '350', display: 'flex', alignItems: 'center', backgroundColor: '' }} >
-            <div className="nav-item"> <InputBase > 
-             id="search-bar" color="rgb(255, 90, 90)" placeholder="Search a location" variant="outlined" size="small" </InputBase> </div>
+        <div className="nav-item">
+          <Paper component="form" sx={{
+            p: '2px 4px',
+            height: '35px', width: '350px',
+            display: 'flex', alignItems: 'center',
+            color: 'rgb(255, 90, 90)',
+            backgroundColor: 'rgba(40, 44, 52)'
+          }} >
+             <InputBase sx={{ color: 'rgb(255, 90, 90)' }}
+              id="search-bar" color="rgb(255, 90, 90)" placeholder="Search a location" variant="outlined" size="small"> </InputBase> 
           </Paper>
+          </div>
           <div className="nav-item">
             <label> {theme === "light" ? "Light" : "Dark"} </label>
             <Switch defaultChecked id="theme-button" onClick={toggleTheme} checked={theme === "dark"}
