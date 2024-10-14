@@ -7,6 +7,7 @@ import LayerMenu from './layer-menu';
 import { createContext } from 'react';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
 
@@ -29,17 +30,21 @@ function Navigation({ theme, toggleTheme }) {
           <div className="nav-item"> TravelTracker.io </div>
         </div>
         <div className="nav-right">
-        <div className="nav-item">
-          <Paper component="form" sx={{
-            p: '2px 4px',
-            height: '35px', width: '350px',
-            display: 'flex', alignItems: 'center',
-            color: 'rgb(255, 90, 90)',
-            backgroundColor: 'rgba(40, 44, 52)'
-          }} >
-             <InputBase sx={{ color: 'rgb(255, 90, 90)' }}
-              id="search-bar" color="rgb(255, 90, 90)" placeholder="Search a location" variant="outlined" size="small"> </InputBase> 
-          </Paper>
+          <div className="nav-item">
+            <Paper component="form" sx={{
+              p: '1px 5px',
+              height: '35px', width: 'fit-content',
+              display: 'flex', alignItems: 'center',
+              color: 'rgb(255, 90, 90)',
+              backgroundColor: 'rgba(40, 44, 52)'
+            }} >
+              <InputBase sx={{ fontFamily: 'Open Sans, sans-serif', display: 'flex', p:'10px', color: 'rgb(255, 90, 90)', border: 'rgb(255, 90, 90)' }}
+                id="search-bar" placeholder="Search a location" variant="outlined" size="small"> </InputBase>
+                
+              <Button sx={{ display: 'flex', border: 'rgb(255, 90, 90)' }}> 
+                <SearchIcon sx={{ display: 'flex', justifyContent: 'flex-end',  p: '5px', border: 'rgb(255, 90, 90)' }}> </SearchIcon> 
+              </Button>
+            </Paper>
           </div>
           <div className="nav-item">
             <label> {theme === "light" ? "Light" : "Dark"} </label>
