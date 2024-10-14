@@ -4,30 +4,47 @@ import './App.css';
 //import 'leaflet/dist/leaflet.css';
 import Mapbox from './map';
 import LayerMenu from './layer-menu';
-
 import { createContext } from 'react';
+import Switch from '@mui/material/Switch';
+import TextField from '@mui/material/TextField';
+import InputBase from '@mui/material/InputBase';
+import Paper from '@mui/material/Paper';
+
+import LoginIcon from '@mui/icons-material/Login';
+import MapIcon from '@mui/icons-material/Map';
+import PartyModeIcon from '@mui/icons-material/PartyMode';
+import SearchIcon from '@mui/icons-material/Search';
+
+import GlobalStyles from '@mui/material/GlobalStyles';
 
 export const ThemeContext = createContext(null);
 
-function Navigation({ theme, toggleTheme}) {
+function Navigation({ theme, toggleTheme }) {
 
   return (
     <>
+
       <div className="navigation">
         <div className="nav-left">
           <div className="nav-item"> TravelTracker.io </div>
         </div>
         <div className="nav-right">
-
+          <Paper component="form"  sx={{ p: '2px 4px', height: '35px', width: '350', display: 'flex', alignItems: 'center', backgroundColor: '' }} >
+            <div className="nav-item"> <InputBase > 
+             id="search-bar" color="rgb(255, 90, 90)" placeholder="Search a location" variant="outlined" size="small" </InputBase> </div>
+          </Paper>
           <div className="nav-item">
             <label> {theme === "light" ? "Light" : "Dark"} </label>
-              <button id="theme-button" onClick={toggleTheme} checked={theme === "dark"}>
-              <img src="light-mode.png" /> </button>
+            <Switch defaultChecked id="theme-button" onClick={toggleTheme} checked={theme === "dark"}
+            />
           </div>
 
-          <div className="nav-item"> Map </div>
-  
-          <div className="nav-item"> Accounts </div>
+          <div className="nav-item"> <MapIcon></MapIcon> Map </div>
+
+          <div className="nav-item"> <PartyModeIcon></PartyModeIcon> Photo Book</div>
+
+          <div className="nav-item"> <LoginIcon></LoginIcon> Log in</div>
+
         </div>
       </div>
     </>
@@ -74,13 +91,13 @@ function MainMenu() {
   return (
     <>
 
-        <button id="hide-button" title="Hide Menu" onclick="hideButton()"> Hide Menu </button>
+      <button id="hide-button" title="Hide Menu" onclick="hideButton()"> Hide Menu </button>
 
       <div className="main-menu">
 
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker" onClick={toggleMarker}>
-          {canPlaceMarker ? 'Disable Marker Placement' : 'Enable Marker Placement'}
+            {canPlaceMarker ? 'Disable Marker Placement' : 'Enable Marker Placement'}
             <img src="add-marker.png" />
           </button>
         </div>
@@ -143,7 +160,7 @@ function App() {
         <Navigation theme={theme} toggleTheme={toggleTheme} />
 
         <div className="content">
-          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker}/>
+          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
           <MainMenu />
           <LayerMenu />
 

@@ -1,15 +1,23 @@
 import React, { useEffect, useRef } from 'react';
+import Mapbox from './map';
+import GlobalStyles from '@mui/material/GlobalStyles';
+
+import LayersIcon from '@mui/icons-material/Layers';
+import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import CommuteIcon from '@mui/icons-material/Commute';
+import TerrainIcon from '@mui/icons-material/Terrain';
 
 const LayerMenu = () => {
 
     return (
 
         <div className="map-layer-menu">
-            <span className="map-layer-title"> Map Layers </span>
-            <button className="map-layer-item"> Satellite </button>
-            <button className="map-layer-item"> Roads </button>
-            <button className="map-layer-item"> Public Transport </button>
-            <button className="map-layer-item"> Geography </button>
+            <span className="map-layer-title"> <LayersIcon></LayersIcon> </span>
+            <button className="map-layer-item"><SatelliteAltIcon></SatelliteAltIcon> </button>
+            <button className="map-layer-item"> <LocalShippingIcon></LocalShippingIcon> </button>
+            <button className="map-layer-item"> <CommuteIcon></CommuteIcon> </button>
+            <button className="map-layer-item"> <TerrainIcon></TerrainIcon>  </button>
         </div>
 
     );
