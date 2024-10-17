@@ -34,7 +34,7 @@ function Navigation({ theme, toggleTheme }) {
         <div className="nav-right">
           <div className="nav-item">
             <Box sx={{ border: '1px', borderColor: 'rgb(255, 90, 90)' }}>
-              <Paper component="form" sx={{
+              <Paper component="form" className="search-paper"sx={{
                 p: '2px 5px',
                 height: '35px', width: 'fit-content',
                 display: 'flex', alignItems: 'center',

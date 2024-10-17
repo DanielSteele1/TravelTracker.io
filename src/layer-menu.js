@@ -16,7 +16,7 @@ const LayerMenu = () => {
     return (
 
         <div className="map-layer-menu">
-            <span className="map-layer-title"> <LayersIcon></LayersIcon> Layers  </span>
+            <span className="map-layer-title"> <LayersIcon></LayersIcon> <h3>Layers</h3> </span>
             <button className="map-layer-item"><SatelliteAltIcon></SatelliteAltIcon> </button>
             <button className="map-layer-item"> <LocalShippingIcon></LocalShippingIcon> </button>
             <button className="map-layer-item"> <CommuteIcon></CommuteIcon> </button>

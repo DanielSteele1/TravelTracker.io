@@ -172,18 +172,17 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   height: 35px;
   width: 100%;
   position: fixed;
   z-index: 1;
   top: 0;
   color: rgb(255, 90, 90);
-  font-size: 18px;
+  font-size: 23px;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
   padding: 10px;
-  justify-content: space-between;
-
 }
 
 .nav-left {
@@ -223,11 +222,10 @@ a {
   padding: 5px;
   border-radius: 15%;
   box-sizing: border-box;
-  box-shadow: #282c34 1px;
   margin-bottom: 1px;
 }
 
-#search-bar {
+#search-paper {
   display:flex;
   height: fit-content;
   padding: 5px;
@@ -236,6 +234,14 @@ a {
   color:rgb(255, 90, 90);
 
 }
+
+.search-paper:hover {
+
+  transform: translateY(-1.5px);
+  box-shadow: rgb(255, 90, 90) 2px 1px 2px 0px;
+  transition: transform 330ms ease-in-out;
+}
+
 .map {
   flex: 1;
   max-width: 100%;
@@ -294,13 +300,26 @@ a {
   padding: 10px;
 }
 
+.map-layer-item:hover {
+
+
+  cursor: pointer;
+  transform: translateY(-1.5px);
+  box-shadow: rgb(255, 90, 90) 2px 1px 2px 0px;
+  transition: transform 330ms ease-in-out;
+
+}
+
 .map-layer-title {
 
   display:flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 10px;
+  padding: 5px;
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
+
 }
 
 
