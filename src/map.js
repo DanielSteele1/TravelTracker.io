@@ -8,7 +8,6 @@ const Mapbox = ({canPlaceMarker, toggleMarker}) => {
   const mapContainerRef = useRef();
   const mapRef = useRef();
 
-
   //state to place marker, if true, user can place one
 
   useEffect(() => {

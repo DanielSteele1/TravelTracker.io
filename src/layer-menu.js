@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react';
+import './App.css';
 import Mapbox from './map';
 import GlobalStyles from '@mui/material/GlobalStyles';
+import Box from '@mui/material/Box';
 
 import LayersIcon from '@mui/icons-material/Layers';
+
 import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CommuteIcon from '@mui/icons-material/Commute';
@@ -13,7 +16,7 @@ const LayerMenu = () => {
     return (
 
         <div className="map-layer-menu">
-            <span className="map-layer-title"> <LayersIcon></LayersIcon> </span>
+            <span className="map-layer-title"> <LayersIcon></LayersIcon> Layers  </span>
             <button className="map-layer-item"><SatelliteAltIcon></SatelliteAltIcon> </button>
             <button className="map-layer-item"> <LocalShippingIcon></LocalShippingIcon> </button>
             <button className="map-layer-item"> <CommuteIcon></CommuteIcon> </button>

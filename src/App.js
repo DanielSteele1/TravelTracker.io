@@ -10,6 +10,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import { red } from '@mui/material/colors';
 
 import LoginIcon from '@mui/icons-material/Login';
 import MapIcon from '@mui/icons-material/Map';
@@ -27,36 +29,56 @@ function Navigation({ theme, toggleTheme }) {
 
       <div className="navigation">
         <div className="nav-left">
-          <div className="nav-item"> TravelTracker.io </div>
+          <div className="nav-item"> <h2 class="title">TravelTracker.io</h2> </div>
         </div>
         <div className="nav-right">
           <div className="nav-item">
-            <Paper component="form" sx={{
-              p: '1px 5px',
-              height: '35px', width: 'fit-content',
-              display: 'flex', alignItems: 'center',
-              color: 'rgb(255, 90, 90)',
-              backgroundColor: 'rgba(40, 44, 52)'
-            }} >
-              <InputBase sx={{ fontFamily: 'Open Sans, sans-serif', display: 'flex', p:'10px', color: 'rgb(255, 90, 90)', border: 'rgb(255, 90, 90)' }}
-                id="search-bar" placeholder="Search a location" variant="outlined" size="small"> </InputBase>
-                
-              <Button sx={{ display: 'flex', border: 'rgb(255, 90, 90)' }}> 
-                <SearchIcon sx={{ display: 'flex', justifyContent: 'flex-end',  p: '5px', border: 'rgb(255, 90, 90)' }}> </SearchIcon> 
-              </Button>
-            </Paper>
+            <Box sx={{ border: '1px', borderColor: 'rgb(255, 90, 90)' }}>
+              <Paper component="form" sx={{
+                p: '2px 5px',
+                height: '35px', width: 'fit-content',
+                display: 'flex', alignItems: 'center',
+                color: 'rgb(255, 90, 90)',
+                backgroundColor: 'rgba(40, 44, 52)'
+              }} >
+
+                <InputBase sx={{ fontFamily: 'Open Sans, sans-serif', display: 'flex', margin:'0 auto', p: '10px', color: 'rgb(255, 90, 90)', }}
+                  id="search-bar" placeholder="Search a location" variant="outlined" size="small"> </InputBase>
+
+                <Button className="Box" sx={{ display: 'flex', border: 'rgb(255, 90, 90)' }}>
+                  <SearchIcon id="search-button" sx={{ display: 'flex', justifyContent: 'flex-end', p: '5px', color: 'rgb(255, 90, 90)' }}> </SearchIcon>
+                </Button>
+              </Paper>
+            </Box>
           </div>
           <div className="nav-item">
             <label> {theme === "light" ? "Light" : "Dark"} </label>
-            <Switch defaultChecked id="theme-button" onClick={toggleTheme} checked={theme === "dark"}
-            />
+            <Switch sx={{
+
+              '& .MuiSwitch-switchBase.Mui-checked': {
+                color: 'rgb(255, 90, 90)', // Color of the thumb when checked
+                '& + .MuiSwitch-track': {
+                  backgroundColor: 'rgb(255, 90, 90)', // Color of the track when checked
+                },
+              },
+              '& .MuiSwitch-switchBase': {
+                color: 'grey', // Color of the thumb when unchecked
+              },
+              '& .MuiSwitch-track': {
+                backgroundColor: 'lightgrey', // Color of the track when unchecked
+              },
+
+            }}
+              defaultChecked id="theme-button"
+              onClick={toggleTheme} checked={theme === "dark"}>
+            </Switch>
           </div>
 
-          <div className="nav-item"> <MapIcon></MapIcon> Map </div>
+          <div className="nav-item"> <Box className="Box"> <MapIcon></MapIcon> </Box> Map </div>
 
-          <div className="nav-item"> <PartyModeIcon></PartyModeIcon> Photo Book</div>
+          <div className="nav-item"> <Box className="Box"> <PartyModeIcon></PartyModeIcon> </Box> Photo Book</div>
 
-          <div className="nav-item"> <LoginIcon></LoginIcon> Log in</div>
+          <div className="nav-item"> <Box className="Box"> <LoginIcon></LoginIcon> </Box> Log in</div>
 
         </div>
       </div>
@@ -158,7 +180,7 @@ function App() {
 
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
 
-  }
+  };
 
   const [canPlaceMarker, setCanPlaceMarker] = useState(false);
 

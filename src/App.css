@@ -57,6 +57,16 @@ body {
 
 }
 
+.Box {
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
 a {
 
   color: rgb(255, 90, 90);
@@ -133,6 +143,30 @@ a {
   cursor: pointer;
 }
 
+.title {
+
+  display:flex;
+  background-color: rgb(20, 20, 19);
+  padding: 6px;
+  box-shadow: rgb(255, 90, 90) 2px 1px 2px 0px;
+  border-radius: 15px;
+  font-size: 24px;
+  margin: 0 auto;
+  font-family: 'Nunito', sans-serif;
+  justify-content: center;
+  align-items:center;
+  height: fit-content;
+  width: fit-content;
+  
+}
+
+.title:hover {
+
+  box-shadow: rgb(255, 90, 90) 2px 1px 2px 0px;
+  transform: translateY(-1.5px);
+  transition: transform 330ms ease-in-out;
+}
+
 .navigation {
 
   display: flex;
@@ -145,7 +179,7 @@ a {
   top: 0;
   color: rgb(255, 90, 90);
   font-size: 18px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 300;
   padding: 10px;
   justify-content: space-between;
@@ -178,7 +212,30 @@ a {
 
 }
 
+#search-button {
+  height: 35px;
+  width: 35px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(29, 28, 27);
+  margin: 10 auto;
+  padding: 5px;
+  border-radius: 15%;
+  box-sizing: border-box;
+  box-shadow: #282c34 1px;
+  margin-bottom: 1px;
+}
 
+#search-bar {
+  display:flex;
+  height: fit-content;
+  padding: 5px;
+  margin: 0 auto;
+  justify-content: center;
+  color:rgb(255, 90, 90);
+
+}
 .map {
   flex: 1;
   max-width: 100%;
@@ -194,14 +251,13 @@ a {
   width: fit-content;
   justify-content: center;
   flex-direction: row;
-  top: 89%;
+  top: 85%;
   right: 35%;
   color: rgb(255, 90, 90);
   font-size: 15px;
   z-index: 10;
   position: absolute;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
   background-color: rgba(40, 44, 52, 0.7);
 
 }
@@ -217,7 +273,7 @@ a {
   background-color: rgba(40, 44, 52, 0.6);
   color: rgb(255, 90, 90);
   top: 15%;
-  right: 95%;
+  right: 93.5%;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -229,7 +285,7 @@ a {
   margin: 10px;
   color: rgb(255, 90, 90);
   font-size: 16px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 300;
   background-color: rgba(40, 44, 52, 0.6);
   border: none;
@@ -240,9 +296,14 @@ a {
 
 .map-layer-title {
 
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   padding: 10px;
-
 }
+
+
 
 .hidden {
   display: none;
@@ -299,7 +360,7 @@ a {
   align-items: center;
   width: fit-content;
   color: rgb(255, 90, 90);
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 17px;
   padding: 5px;
   margin: 0 auto;
