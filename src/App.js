@@ -4,6 +4,8 @@ import './App.css';
 //import 'leaflet/dist/leaflet.css';
 import Mapbox from './map';
 import LayerMenu from './layer-menu';
+import PhotoBook from './photobook';
+
 import { createContext } from 'react';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
@@ -76,7 +78,7 @@ function Navigation({ theme, toggleTheme }) {
 
           <div className="nav-item"> <Box className="Box"> <MapIcon></MapIcon> </Box> Map </div>
 
-          <div className="nav-item"> <Box className="Box"> <PartyModeIcon></PartyModeIcon> </Box> Photo Book</div>
+          <div className="nav-item"> <Box className="Box"> <PartyModeIcon></PartyModeIcon> </Box> <a href="photobook.js">Photo Book</a></div>
 
           <div className="nav-item"> <Box className="Box"> <LoginIcon></LoginIcon> </Box> Log in</div>
 
@@ -132,7 +134,7 @@ function MainMenu() {
 
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker" onClick={toggleMarker}>
-            {canPlaceMarker ? 'Disable Marker Placement' : 'Enable Marker Placement'}
+            {canPlaceMarker ? 'off' : 'on'}
             <img src="add-marker.png" />
           </button>
         </div>
@@ -188,16 +190,15 @@ function App() {
     setCanPlaceMarker((prev) => !prev);
   };
 
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
         <Navigation theme={theme} toggleTheme={toggleTheme} />
-
         <div className="content">
           <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
           <MainMenu />
           <LayerMenu />
+          <PhotoBook />
 
         </div>
         <Footer />
