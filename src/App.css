@@ -326,7 +326,7 @@ a {
 
   display:flex;
   flex-direction: column;
-  height: 400px;
+  height: fit-content;
   width: 800px;
   padding: 10px;
   z-index: 10;
@@ -344,9 +344,9 @@ a {
 
 .Photos {
 
-  height: fit-content;
-  width: fit-content;
-
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 
 }
 
@@ -370,6 +370,12 @@ a {
 .photo-card {
 
   display: grid;
+  padding: 10px;
+  margin: 10px;
+  height: 100px;
+  width: 300px;
+  background-color: black;
+  border-radius: 10px;
 
 }
 

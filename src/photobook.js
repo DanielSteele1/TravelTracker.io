@@ -20,10 +20,12 @@ const PhotoBook = () => {
                 Navigation
             </div>
             <div className="Photos">
-                <Box className="photo-card"> </Box>
-                <Box className="photo-card"> hello </Box>
-                <Box className="photo-card"> hello </Box>
-                <Box className="photo-card"> hello </Box>
+                <Box className="photo-card">  </Box>
+                <Box className="photo-card">  </Box>
+                <Box className="photo-card">  </Box>
+                <Box className="photo-card">  </Box>
+                <Box className="photo-card">  </Box>
+                <Box className="photo-card">  </Box>
             </div>
 
 
