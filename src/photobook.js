@@ -3,6 +3,8 @@ import './App.css';
 import Mapbox from './map';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Box from '@mui/material/Box';
+import darkScrollbar from '@mui/material/darkScrollbar';
+
 
 import LayersIcon from '@mui/icons-material/Layers';
 
@@ -10,6 +12,8 @@ import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CommuteIcon from '@mui/icons-material/Commute';
 import TerrainIcon from '@mui/icons-material/Terrain';
+import PhotoIcon from '@mui/icons-material/Photo';
+
 
 const PhotoBook = () => {
 
@@ -20,15 +24,15 @@ const PhotoBook = () => {
                 Navigation
             </div>
             <div className="Photos">
-                <Box className="photo-card">  </Box>
-                <Box className="photo-card">  </Box>
-                <Box className="photo-card">  </Box>
-                <Box className="photo-card">  </Box>
-                <Box className="photo-card">  </Box>
-                <Box className="photo-card">  </Box>
+                <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
+                <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
+                <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
+                <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
+                <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
+                <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
             </div>
 
-
+            <darkScrollbar> </darkScrollbar>
         </div>
 
     );
