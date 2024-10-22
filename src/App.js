@@ -131,7 +131,6 @@ function MainMenu() {
       <button id="hide-button" title="Hide Menu" onclick="hideButton()"> Hide Menu </button>
 
       <div className="main-menu">
-
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker" onClick={toggleMarker}>
             {canPlaceMarker ? 'off' : 'on'}

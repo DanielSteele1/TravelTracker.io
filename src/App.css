@@ -350,6 +350,30 @@ a {
 
 }
 
+.nav-container {
+
+  display:flex;
+  flex: 0;
+  height: auto;
+  width: auto;
+  padding: 10px;
+
+}
+
+.Photo-Exit {
+
+  display:flex;
+  margin: 0 auto;
+  justify-content: center;
+  height: 20px;
+  width:20px;
+  background-color:black;
+  padding: 5px;
+  border-radius: 15px;
+  font-family: 'Nunito', sans-serif;
+}
+
+
 .Photo-nav {
 
   display:flex;

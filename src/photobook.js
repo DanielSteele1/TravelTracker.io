@@ -15,15 +15,49 @@ import TerrainIcon from '@mui/icons-material/Terrain';
 import PhotoIcon from '@mui/icons-material/Photo';
 
 
-const PhotoBook = () => {
+function PhotoBook() {
+    useEffect(() => {
+
+        function togglePhotos() {
+
+            const PhotoMenu = document.getElementsByClassName("Photo-menu");
+
+            for (let i = 0; i < PhotoMenu.length; i++) {
+
+                if (PhotoMenu[i].classList.contains("hidden")) {
+                    PhotoMenu[i].classList.remove("hidden");
+
+                } else {
+                    PhotoMenu[i].classList.add("hidden");
+
+                }
+            }
+        };
+
+
+        document.getElementById("Photo-Exit").addEventListener("click", togglePhotos);
+
+        return () => {
+
+            document.getElementById("Photo-Exit").removeEventListener("click", togglePhotos);
+        }
+
+    }, []);
 
     return (
 
         <div className="Photo-menu">
-            <div className="Photo-nav">
-                Navigation
+            <div className="nav-container">
+                <div className="Photo-nav">
+                    Navigation
+                </div>
+                <div id="Photo-Exit"> <button>X</button></div>
             </div>
             <div className="Photos">
+
+
+
+
                 <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
                 <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
                 <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
