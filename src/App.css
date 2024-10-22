@@ -390,6 +390,10 @@ a {
 
 }
 
+#showPhotos:hover, #Photo-Exit {
+  cursor:pointer;
+}
+
 
 .photo-card {
 
@@ -402,7 +406,6 @@ a {
   border-radius: 10px;
 
 }
-
 
 .hidden {
   display: none;

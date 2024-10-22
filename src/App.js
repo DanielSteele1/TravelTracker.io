@@ -80,7 +80,7 @@ function Navigation({ theme, toggleTheme }) {
 
           <div className="nav-item"> <Box className="Box"> <PartyModeIcon></PartyModeIcon> </Box> <div id="showPhotos">Photo Book</div></div>
 
-          <div className="nav-item"> <Box className="Box"> <LoginIcon></LoginIcon> </Box> Log in</div>
+          <div className="nav-item"> <Box className="Box"> <LoginIcon></LoginIcon> </Box> <div id="showLogin">Login</div> </div>
 
         </div>
       </div>

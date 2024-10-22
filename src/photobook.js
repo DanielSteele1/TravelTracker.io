@@ -59,7 +59,7 @@ function PhotoBook() {
 
     return (
 
-        <div className="Photo-menu">
+        <div className="Photo-menu hidden">
             <div className="nav-container">
                 <div className="Photo-nav">
                     Navigation
@@ -67,9 +67,6 @@ function PhotoBook() {
                 <div id="Photo-Exit"> <button>X</button></div>
             </div>
             <div className="Photos">
-
-
-
 
                 <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
                 <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
