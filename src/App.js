@@ -78,7 +78,7 @@ function Navigation({ theme, toggleTheme }) {
 
           <div className="nav-item"> <Box className="Box"> <MapIcon></MapIcon> </Box> Map </div>
 
-          <div className="nav-item"> <Box className="Box"> <PartyModeIcon></PartyModeIcon> </Box> <a href="photobook.js">Photo Book</a></div>
+          <div className="nav-item"> <Box className="Box"> <PartyModeIcon></PartyModeIcon> </Box> <div id="showPhotos">Photo Book</div></div>
 
           <div className="nav-item"> <Box className="Box"> <LoginIcon></LoginIcon> </Box> Log in</div>
 

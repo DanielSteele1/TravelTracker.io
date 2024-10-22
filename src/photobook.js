@@ -18,29 +18,42 @@ import PhotoIcon from '@mui/icons-material/Photo';
 function PhotoBook() {
     useEffect(() => {
 
-        function togglePhotos() {
 
+        function showPhotos() {
             const PhotoMenu = document.getElementsByClassName("Photo-menu");
 
             for (let i = 0; i < PhotoMenu.length; i++) {
 
                 if (PhotoMenu[i].classList.contains("hidden")) {
-                    PhotoMenu[i].classList.remove("hidden");
-
-                } else {
-                    PhotoMenu[i].classList.add("hidden");
+                    PhotoMenu[i].classList.remove("hidden");  //show
 
                 }
-            }
-        };
+            };
 
-
-        document.getElementById("Photo-Exit").addEventListener("click", togglePhotos);
-
-        return () => {
-
-            document.getElementById("Photo-Exit").removeEventListener("click", togglePhotos);
         }
+
+        function hidePhotos() {
+            const PhotoMenu = document.getElementsByClassName("Photo-menu");
+
+
+            for (let i = 0; i < PhotoMenu.length; i++) {
+
+                if (!PhotoMenu[i].classList.contains("hidden")) {
+                    PhotoMenu[i].classList.add("hidden");   //hide
+ 
+                }
+            }
+        }
+
+            document.getElementById("showPhotos").addEventListener("click", showPhotos);
+            document.getElementById("Photo-Exit").addEventListener("click", hidePhotos);
+
+            return () => {
+
+                document.getElementById("showPhotos").removeEventListener("click", hidePhotos);
+                document.getElementById("Photo-Exit").removeEventListener("click", showPhotos);
+            }
+        
 
     }, []);
 
