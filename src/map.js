@@ -19,14 +19,14 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
 
   useEffect(() => {
 
-    console.log("canPlaceMarker in Mapbox:", canPlaceMarker); 
+    console.log("canPlaceMarker in Mapbox:", canPlaceMarker);
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZHN0ZWVsZTIyIiwiYSI6ImNtMWt2cWs4NTAzYXYybXF2dDM1cmNtazIifQ.aXhlnjtOVio05U9yMU101g';
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-      center: [-0.1404545, 51.5220163], 
-      zoom: 2 
+      center: [-0.1404545, 51.5220163],
+      zoom: 2
     });
 
 
@@ -68,20 +68,20 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
     // when a user clicks on the map, place a marker
 
     const handleMapClick = (e) => {
-      console.log('Map Clicked, canPlaceMarker:', canPlaceMarkerRef.current); 
+      console.log('Map Clicked, canPlaceMarker:', canPlaceMarkerRef.current);
       if (canPlaceMarkerRef.current) {
         const { lng, lat } = e.lngLat;
 
         // Create and place a new marker
         new mapboxgl.Marker()
-          .setLngLat([lng, lat]) 
+          .setLngLat([lng, lat])
           .addTo(mapRef.current); // Add the marker to the map
 
-        console.log("Marker placed at:", lng, lat); 
+        console.log("Marker placed at:", lng, lat);
       } else {
-        console.log("Marker placement is disabled."); 
+        console.log("Marker placement is disabled.");
       }
-    }; 
+    };
     mapRef.current.on('click', handleMapClick);
 
     return () => {

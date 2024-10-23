@@ -36,7 +36,7 @@ function Navigation({ theme, toggleTheme }) {
         <div className="nav-right">
           <div className="nav-item">
             <Box sx={{ border: '1px', borderColor: 'rgb(255, 90, 90)' }}>
-              <Paper component="form" className="search-paper"sx={{
+              <Paper component="form" className="search-paper" sx={{
                 p: '2px 5px',
                 height: '35px', width: 'fit-content',
                 display: 'flex', alignItems: 'center',
@@ -44,7 +44,7 @@ function Navigation({ theme, toggleTheme }) {
                 backgroundColor: 'rgba(40, 44, 52)'
               }} >
 
-                <InputBase sx={{ fontFamily: 'Open Sans, sans-serif', display: 'flex', margin:'0 auto', p: '10px', color: 'rgb(255, 90, 90)', }}
+                <InputBase sx={{ fontFamily: 'Open Sans, sans-serif', display: 'flex', margin: '0 auto', p: '10px', color: 'rgb(255, 90, 90)', }}
                   id="search-bar" placeholder="Search a location" variant="outlined" size="small"> </InputBase>
 
                 <Button className="Box" sx={{ display: 'flex', border: 'rgb(255, 90, 90)' }}>
@@ -58,16 +58,16 @@ function Navigation({ theme, toggleTheme }) {
             <Switch sx={{
 
               '& .MuiSwitch-switchBase.Mui-checked': {
-                color: 'rgb(255, 90, 90)', 
+                color: 'rgb(255, 90, 90)',
                 '& + .MuiSwitch-track': {
-                  backgroundColor: 'rgb(255, 90, 90)', 
+                  backgroundColor: 'rgb(255, 90, 90)',
                 },
               },
               '& .MuiSwitch-switchBase': {
-                color: 'grey', 
+                color: 'grey',
               },
               '& .MuiSwitch-track': {
-                backgroundColor: 'lightgrey', 
+                backgroundColor: 'lightgrey',
               },
 
             }}
@@ -175,11 +175,11 @@ function App() {
 
   };
 
-  const [canPlaceMarker, setCanPlaceMarker] = useState(false);
+  const [canPlaceMarker, setCanPlaceMarker] = useState(true);
 
   const toggleMarker = () => {
     setCanPlaceMarker((prev) => !prev);
-    console.log("canPlaceMarker is now:", !canPlaceMarker); 
+    console.log("canPlaceMarker is now:", !canPlaceMarker);
   };
 
   return (
@@ -188,7 +188,7 @@ function App() {
         <Navigation theme={theme} toggleTheme={toggleTheme} />
         <div className="content">
           <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
-          <MainMenu canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker}/>
+          <MainMenu canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
           <LayerMenu />
           <PhotoBook />
 

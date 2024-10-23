@@ -40,20 +40,20 @@ function PhotoBook() {
 
                 if (!PhotoMenu[i].classList.contains("hidden")) {
                     PhotoMenu[i].classList.add("hidden");   //hide
- 
+
                 }
             }
         }
 
-            document.getElementById("showPhotos").addEventListener("click", showPhotos);
-            document.getElementById("Photo-Exit").addEventListener("click", hidePhotos);
+        document.getElementById("showPhotos").addEventListener("click", showPhotos);
+        document.getElementById("Photo-Exit").addEventListener("click", hidePhotos);
 
-            return () => {
+        return () => {
 
-                document.getElementById("showPhotos").removeEventListener("click", hidePhotos);
-                document.getElementById("Photo-Exit").removeEventListener("click", showPhotos);
-            }
-        
+            document.getElementById("showPhotos").removeEventListener("click", hidePhotos);
+            document.getElementById("Photo-Exit").removeEventListener("click", showPhotos);
+        }
+
 
     }, []);
 
