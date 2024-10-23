@@ -3,22 +3,32 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import GlobalStyles from '@mui/material/GlobalStyles';
 
-const Mapbox = ({canPlaceMarker, toggleMarker}) => {
+const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
   console.log('Props received in Mapbox:', { canPlaceMarker, toggleMarker });
-  const mapContainerRef = useRef();
-  const mapRef = useRef();
 
-  //state to place marker, if true, user can place one
+  const mapContainerRef = useRef(null);
+  const mapRef = useRef();
+  const canPlaceMarkerRef = useRef(canPlaceMarker);
 
   useEffect(() => {
+
+    canPlaceMarkerRef.current = canPlaceMarker;
+
+  }, [canPlaceMarker]);
+
+
+  useEffect(() => {
+
+    console.log("canPlaceMarker in Mapbox:", canPlaceMarker); 
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZHN0ZWVsZTIyIiwiYSI6ImNtMWt2cWs4NTAzYXYybXF2dDM1cmNtazIifQ.aXhlnjtOVio05U9yMU101g';
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
-      center: [-0.1404545, 51.5220163], // starting position [lng, lat]
-      zoom: 2 // starting zoom
+      center: [-0.1404545, 51.5220163], 
+      zoom: 2 
     });
+
 
     const geojson = {
       type: 'FeatureCollection',
@@ -56,49 +66,38 @@ const Mapbox = ({canPlaceMarker, toggleMarker}) => {
     }
 
     // when a user clicks on the map, place a marker
-    mapRef.current.on('click', (e) => {
 
-      console.log('Map Clicked', canPlaceMarker);
-
-      if (canPlaceMarker) {
+    const handleMapClick = (e) => {
+      console.log('Map Clicked, canPlaceMarker:', canPlaceMarkerRef.current); 
+      if (canPlaceMarkerRef.current) {
         const { lng, lat } = e.lngLat;
 
+        // Create and place a new marker
         new mapboxgl.Marker()
-          .setLngLat([lng, lat])
-          .addTo(mapRef.current);
+          .setLngLat([lng, lat]) 
+          .addTo(mapRef.current); // Add the marker to the map
 
-          console.log("toggleMarker is:", toggleMarker);
-        toggleMarker();
-
+        console.log("Marker placed at:", lng, lat); 
+      } else {
+        console.log("Marker placement is disabled."); 
       }
+    }; 
+    mapRef.current.on('click', handleMapClick);
 
-    });
+    return () => {
+      mapRef.current.off('click', handleMapClick);
+      mapRef.current.remove();
 
-
-  //example marker - london
-
-  new mapboxgl.Marker()
-    .setLngLat([-0.127758, 51.507351])
-    .addTo(mapRef.current);
-
-  new mapboxgl.Marker()
-    .setLngLat([-74.005974, 40.712776])
-    .addTo(mapRef.current);
-
-    return () => { 
-      mapRef.current.remove(); 
-      mapRef.current.off('click');
     };
-  }, [canPlaceMarker, toggleMarker]);
+  }, []);
 
-
-return (
-  <div
-    style={{ height: '865px' }}
-    ref={mapContainerRef}
-    className="map"
-  />
-);
+  return (
+    <div
+      style={{ height: '865px' }}
+      ref={mapContainerRef}
+      className="map"
+    />
+  );
 };
 
 export default Mapbox;

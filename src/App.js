@@ -58,16 +58,16 @@ function Navigation({ theme, toggleTheme }) {
             <Switch sx={{
 
               '& .MuiSwitch-switchBase.Mui-checked': {
-                color: 'rgb(255, 90, 90)', // Color of the thumb when checked
+                color: 'rgb(255, 90, 90)', 
                 '& + .MuiSwitch-track': {
-                  backgroundColor: 'rgb(255, 90, 90)', // Color of the track when checked
+                  backgroundColor: 'rgb(255, 90, 90)', 
                 },
               },
               '& .MuiSwitch-switchBase': {
-                color: 'grey', // Color of the thumb when unchecked
+                color: 'grey', 
               },
               '& .MuiSwitch-track': {
-                backgroundColor: 'lightgrey', // Color of the track when unchecked
+                backgroundColor: 'lightgrey', 
               },
 
             }}
@@ -88,7 +88,7 @@ function Navigation({ theme, toggleTheme }) {
   )
 };
 
-function MainMenu() {
+function MainMenu({ canPlaceMarker, toggleMarker }) {
   useEffect(() => {
     function hideButton() {
       const hideButton = document.getElementById("hide-button");
@@ -110,20 +110,12 @@ function MainMenu() {
       }
     }
 
-
-
     document.getElementById("hide-button").addEventListener("click", hideButton);
 
     return () => {
       document.getElementById("hide-button").removeEventListener("click", hideButton);
     };
   }, []);
-
-  const [canPlaceMarker, setCanPlaceMarker] = useState(false);
-
-  const toggleMarker = () => {
-    setCanPlaceMarker((prev) => !prev);
-  };
 
   return (
     <>
@@ -187,6 +179,7 @@ function App() {
 
   const toggleMarker = () => {
     setCanPlaceMarker((prev) => !prev);
+    console.log("canPlaceMarker is now:", !canPlaceMarker); 
   };
 
   return (
@@ -195,7 +188,7 @@ function App() {
         <Navigation theme={theme} toggleTheme={toggleTheme} />
         <div className="content">
           <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
-          <MainMenu />
+          <MainMenu canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker}/>
           <LayerMenu />
           <PhotoBook />
 
