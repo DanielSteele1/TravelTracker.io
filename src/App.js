@@ -175,7 +175,7 @@ function App() {
 
   };
 
-  const [canPlaceMarker, setCanPlaceMarker] = useState(true);
+  const [canPlaceMarker, setCanPlaceMarker] = useState(false);
 
   const toggleMarker = () => {
     setCanPlaceMarker((prev) => !prev);
