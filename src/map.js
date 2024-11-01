@@ -16,7 +16,6 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
 
   }, [canPlaceMarker]);
 
-
   useEffect(() => {
 
     console.log("canPlaceMarker in Mapbox:", canPlaceMarker);
@@ -58,12 +57,12 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
       ]
     };
 
-
     for (const feature of geojson.features) {
 
       new mapboxgl.Marker().setLngLat(feature.geometry.coordinates).addTo(mapRef.current);
 
     }
+
 
     // when a user clicks on the map, place a marker
 
@@ -72,8 +71,12 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
       if (canPlaceMarkerRef.current) {
         const { lng, lat } = e.lngLat;
 
+        var customMarker = document.createElement('div');
+        customMarker.className = 'marker';
+       // customMarker.style.backgroundImage = '/map-marker-512.png';
+    
         // Create and place a new marker
-        new mapboxgl.Marker()
+        new mapboxgl.Marker(customMarker)
           .setLngLat([lng, lat])
           .addTo(mapRef.current); // Add the marker to the map
 

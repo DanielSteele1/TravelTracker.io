@@ -36,6 +36,11 @@ a {
   padding: 3px;
 }
 
+button:hover {
+
+  text-decoration:underline;
+}
+
 #light {
   background-color: rgb(231, 228, 228);
 }
@@ -45,7 +50,7 @@ a {
 }
 
 #light .navigation {
-  background-color: rgb(231, 228, 228);
+  background-color: rgb(255, 255, 255);
 
 }
 
@@ -115,7 +120,7 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 35px;
+  height: 55px;
   width: 100%;
   position: fixed;
   z-index: 1;
@@ -124,7 +129,6 @@ a {
   font-size: 20px;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  padding: 10px;
 }
 
 .nav-left {
@@ -335,6 +339,7 @@ a {
 #showPhotos:hover,
 #Photo-Exit {
   cursor: pointer;
+  text-decoration:underline;
 }
 
 
@@ -367,6 +372,14 @@ a {
   cursor: pointer;
 }
 
+.marker {
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: 'map-marker-512.png';
+
+}
 
 #hide-button {
 

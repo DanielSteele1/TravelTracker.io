@@ -35,21 +35,27 @@ function Navigation({ theme, toggleTheme }) {
         </div>
         <div className="nav-right">
           <div className="nav-item">
-            <Box sx={{ border: '1px', borderColor: 'rgb(255, 90, 90)' }}>
+            <Box sx={{ borderColor: 'rgb(255, 90, 90)' }}>
               <Paper component="form" className="search-paper" sx={{
-                p: '2px 5px',
-                height: '35px', width: 'fit-content',
+
+                height: 'fit-content', width: 'fit-content',
                 display: 'flex', alignItems: 'center',
                 color: 'rgb(255, 90, 90)',
                 backgroundColor: 'rgba(40, 44, 52)'
               }} >
 
-                <InputBase sx={{ fontFamily: 'Open Sans, sans-serif', display: 'flex', margin: '0 auto', p: '10px', color: 'rgb(255, 90, 90)', }}
-                  id="search-bar" placeholder="Search a location" variant="outlined" size="small"> </InputBase>
+                <InputBase disabled={false} sx={{
+                  fontFamily: 'Nunito, sans-serif',
+                  textalign: 'center', margin: '0 auto', p: '5px',
+                  color: 'rgb(255, 90, 90)', width: 'fit-content'
+                }}
+                  id="search-bar" placeholder="Search a location" variant="outlined" size="small">
+                </InputBase>
 
-                <Button className="Box" sx={{ display: 'flex', border: 'rgb(255, 90, 90)' }}>
-                  <SearchIcon id="search-button" sx={{ display: 'flex', justifyContent: 'flex-end', p: '5px', color: 'rgb(255, 90, 90)' }}> </SearchIcon>
+                <Button className="button" sx={{ display: 'flex', height: 'fit-content', width: 'fit-content' }}>
+                  <SearchIcon sx={{ justifyContent: 'center', color: 'rgb(255, 90, 90)' }}> </SearchIcon>
                 </Button>
+
               </Paper>
             </Box>
           </div>
