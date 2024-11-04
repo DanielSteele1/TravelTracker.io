@@ -28,7 +28,6 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
       zoom: 2
     });
 
-
     const geojson = {
       type: 'FeatureCollection',
       features: [
@@ -63,7 +62,6 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
 
     }
 
-
     // when a user clicks on the map, place a marker
 
     const handleMapClick = (e) => {
@@ -73,7 +71,7 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
 
         var customMarker = document.createElement('div');
         customMarker.className = 'marker';
-       // customMarker.style.backgroundImage = '/map-marker-512.png';
+        customMarker.style.backgroundImage = 'url(/map-marker-512.png)';
     
         // Create and place a new marker
         new mapboxgl.Marker(customMarker)
@@ -82,6 +80,7 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
 
         console.log("Marker placed at:", lng, lat);
       } else {
+
         console.log("Marker placement is disabled.");
       }
     };
