@@ -5,7 +5,6 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import Box from '@mui/material/Box';
 import darkScrollbar from '@mui/material/darkScrollbar';
 
-
 import LayersIcon from '@mui/icons-material/Layers';
 
 import SatelliteAltIcon from '@mui/icons-material/SatelliteAlt';
@@ -13,6 +12,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CommuteIcon from '@mui/icons-material/Commute';
 import TerrainIcon from '@mui/icons-material/Terrain';
 import PhotoIcon from '@mui/icons-material/Photo';
+import Button from '@mui/material/Button';
 
 
 function PhotoBook() {
@@ -54,7 +54,6 @@ function PhotoBook() {
             document.getElementById("Photo-Exit").removeEventListener("click", showPhotos);
         }
 
-
     }, []);
 
     return (
@@ -64,7 +63,7 @@ function PhotoBook() {
                 <div className="Photo-nav">
                     Navigation
                 </div>
-                <div id="Photo-Exit"> <button>X</button></div>
+                <div id="Photo-Exit"> <Button>X</Button></div>
             </div>
             <div className="Photos">
 

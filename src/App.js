@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-//import L from 'leaflet';
-//import 'leaflet/dist/leaflet.css';
+import server from './server.js';
+
 import Mapbox from './map';
 import LayerMenu from './layer-menu';
 import PhotoBook from './photobook';
+import LoginOrSignup from './login.js';
 
 import { createContext } from 'react';
 import Switch from '@mui/material/Switch';
-import TextField from '@mui/material/TextField';
+//import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { red } from '@mui/material/colors';
+//import { red } from '@mui/material/colors';
 
 import LoginIcon from '@mui/icons-material/Login';
 import MapIcon from '@mui/icons-material/Map';
 import PartyModeIcon from '@mui/icons-material/PartyMode';
 import SearchIcon from '@mui/icons-material/Search';
 
-import GlobalStyles from '@mui/material/GlobalStyles';
+//import GlobalStyles from '@mui/material/GlobalStyles';
 
 export const ThemeContext = createContext(null);
 
@@ -86,7 +87,7 @@ function Navigation({ theme, toggleTheme }) {
 
           <div className="nav-item"> <Box className="Box"> <PartyModeIcon></PartyModeIcon> </Box> <div id="showPhotos">Photo Book</div></div>
 
-          <div className="nav-item"> <Box className="Box"> <LoginIcon></LoginIcon> </Box> <div id="showLogin">Login</div> </div>
+          <div className="nav-item"> <Box className="Box"> <LoginIcon></LoginIcon> </Box> <div id="showPortal">Login</div> </div>
 
         </div>
       </div>
@@ -197,6 +198,7 @@ function App() {
           <MainMenu canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
           <LayerMenu />
           <PhotoBook />
+          <LoginOrSignup />
 
         </div>
         <Footer />

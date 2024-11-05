@@ -41,6 +41,7 @@ button:hover {
   text-decoration:underline;
 }
 
+
 #light {
   background-color: rgb(231, 228, 228);
 }
@@ -170,6 +171,92 @@ button:hover {
   box-sizing: border-box;
   margin-bottom: 1px;
 }
+
+
+
+.Portal-left, .Portal-right {
+
+  display: flex;
+  flex-direction: column;
+  height:fit-content;
+  width:fit-content;
+  border: 1px white solid;
+  border-radius: 15px;
+  margin: 0 auto;
+
+}
+
+
+.accountsPortal{
+
+  display: flex;
+  max-height: fit-content;
+  flex-direction:row;
+  width: 800px;
+  padding: 10px;
+  z-index: 10;
+  top: 10%;
+  left: 30%;
+  font-family: 'Nunito', sans-serif;
+  background-color: #282c34;
+  color: rgb(255, 90, 90);
+  border-radius: 15px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+
+.accountsTitle {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  margin: 0 auto !important;
+}
+
+.PortalButtons {
+  display:flex;
+  width: 200px;
+  padding: 10px;
+  margin: 0 auto;
+  align-items: flex-start; 
+  justify-content:flex-start;
+
+}
+
+
+.accountsButton {
+
+  display:flex !important;
+  height: 60px !important;
+  width: 80px !important;
+  color: white !important;
+  background-color: rgb(255, 90, 90) !important;
+  font-family: 'Nunito', sans-serif !important;
+  padding: 5px !important;
+  margin: 10px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+
+}
+
+.accountsLogin, .accountsSignup {
+
+  display:flex !important;
+  flex-direction: row !important;
+  height: 60px !important;
+  width: 300px !important;
+  justify-content: center !important;
+  padding: 10px !important;
+  color: rgb(255, 90, 90) !important;
+  font-family: 'Nunito', sans-serif !important;
+  padding: 5px !important;
+  margin: 10px !important;
+  margin: 0 auto !important;
+
+
+}
+
 
 #search-paper {
   display: flex;
@@ -336,8 +423,7 @@ button:hover {
 
 }
 
-#showPhotos:hover,
-#Photo-Exit {
+#showPhotos:hover, #showPortal:hover, #Photo-Exit, #PortalExit {
   cursor: pointer;
   text-decoration:underline;
 }
