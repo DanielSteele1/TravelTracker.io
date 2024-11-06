@@ -13,11 +13,11 @@ import CommuteIcon from '@mui/icons-material/Commute';
 import TerrainIcon from '@mui/icons-material/Terrain';
 import PhotoIcon from '@mui/icons-material/Photo';
 import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 function PhotoBook() {
     useEffect(() => {
-
 
         function showPhotos() {
             const PhotoMenu = document.getElementsByClassName("Photo-menu");
@@ -63,7 +63,7 @@ function PhotoBook() {
                 <div className="Photo-nav">
                     Navigation
                 </div>
-                <div id="Photo-Exit"> <Button>X</Button></div>
+                <div id="Photo-Exit"> <CloseIcon></CloseIcon></div>
             </div>
             <div className="Photos">
 

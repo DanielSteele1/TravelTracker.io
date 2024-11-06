@@ -20,6 +20,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import MapIcon from '@mui/icons-material/Map';
 import PartyModeIcon from '@mui/icons-material/PartyMode';
 import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 
 //import GlobalStyles from '@mui/material/GlobalStyles';
 

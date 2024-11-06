@@ -172,31 +172,35 @@ button:hover {
   margin-bottom: 1px;
 }
 
-
-
-.Portal-left, .Portal-right {
+.Portal {
 
   display: flex;
   flex-direction: column;
   height:fit-content;
-  width:fit-content;
-  border: 1px white solid;
+  width:500px;
+  padding: 10px;
   border-radius: 15px;
-  margin: 0 auto;
-
+  border: 5px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    rgba(255, 90, 90, 1) 5%,     
+    rgb(211, 55, 55) 20%,    
+    rgb(190, 38, 38) 40%,    
+    rgb(197, 80, 80) 60%     
+  );  border-image-slice: 1;
 }
-
 
 .accountsPortal{
 
   display: flex;
   max-height: fit-content;
   flex-direction:row;
-  width: 800px;
+  width: fit-content;
+  margin: 0 auto;
   padding: 10px;
   z-index: 10;
-  top: 10%;
-  left: 30%;
+  top: 15%;
+  left: 35%;
   font-family: 'Nunito', sans-serif;
   background-color: #282c34;
   color: rgb(255, 90, 90);
@@ -205,13 +209,24 @@ button:hover {
   box-sizing: border-box;
 }
 
-
 .accountsTitle {
   display: flex !important;
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-  margin: 0 auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 5px;
 }
+
+h2 {
+  font: 12px;
+  margin: 12px;
+}
+
+.Portal-description{
+  font: 12px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
 
 .PortalButtons {
   display:flex;
@@ -223,40 +238,50 @@ button:hover {
 
 }
 
-
 .accountsButton {
-
-  display:flex !important;
-  height: 60px !important;
+  display: flex !important;
+  height: 50px !important;
   width: 80px !important;
   color: white !important;
-  background-color: rgb(255, 90, 90) !important;
   font-family: 'Nunito', sans-serif !important;
   padding: 5px !important;
-  margin: 10px !important;
+  margin: 0 auto !important;
   justify-content: center !important;
   align-items: center !important;
-  margin: 0 auto !important;
+  border-radius: 15px; 
+}
+
+.accountsButton:hover {
+  transition: color 0.6s ease !important; 
+  color:rgb(190, 38, 38) !important;
+  border: 1px solid;
+  transition: color 0.3s ease; 
 
 }
 
 .accountsLogin, .accountsSignup {
 
-  display:flex !important;
+  flex:1;
   flex-direction: row !important;
-  height: 60px !important;
-  width: 300px !important;
+  height: 44px !important;
+  width: 250px !important;
   justify-content: center !important;
-  padding: 10px !important;
   color: rgb(255, 90, 90) !important;
   font-family: 'Nunito', sans-serif !important;
-  padding: 5px !important;
-  margin: 10px !important;
+  padding: 2px !important;
   margin: 0 auto !important;
-
 
 }
 
+.input-group {
+display: flex;
+align-items:center;
+margin: 5px;
+}
+
+.input-icon {
+  margin-left: 80px;
+}
 
 #search-paper {
   display: flex;
@@ -393,17 +418,28 @@ button:hover {
 
 }
 
-.Photo-Exit {
+#Photo-Exit, #accounts-Exit {
 
   display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  height: 20px;
-  width: 20px;
-  background-color: black;
+  flex:1 !important;
+  flex-direction: row !important;
+  margin: 0 auto !important;
+  justify-content: flex-end !important;
+  align-items: flex-end important;
+  height: fit-content !important;
+  width: fit-content !important;
+  color: rgb(255, 90, 90) !important;
+  border-radius: 15px !important;
   padding: 5px;
-  border-radius: 15px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif !important;
+  
+}
+
+#Photo-Exit:hover, #accounts-Exit:hover {
+
+  border: 10px black;
+  cursor:pointer;
+
 }
 
 
@@ -423,7 +459,7 @@ button:hover {
 
 }
 
-#showPhotos:hover, #showPortal:hover, #Photo-Exit, #PortalExit {
+#showPhotos:hover, #showPortal:hover {
   cursor: pointer;
   text-decoration:underline;
 }

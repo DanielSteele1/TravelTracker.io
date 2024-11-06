@@ -7,6 +7,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import PersonIcon from '@mui/icons-material/Person';
+import CloseIcon from '@mui/icons-material/Close';
+import PasswordIcon from '@mui/icons-material/Password';
+import MailIcon from '@mui/icons-material/Mail';
+
 
 
 function LoginOrSignup() {
@@ -46,40 +50,45 @@ function LoginOrSignup() {
 
     return (
         <div className="accountsPortal">
-            <div className="Portal-Left">
-                <div id="accounts-Exit"> <Button>X</Button></div>
-                <div className="Login">
-                    <div className="accounts-title">
-                        <h2>
-                            Login
-                        </h2>
-                        <TextField className="accountsLogin" placeholder='Username'> </TextField>
-                        <TextField className="accountsLogin" placeholder='Password'> </TextField>
-
-                    </div>
+            <div className="Portal">
+                <div className="nav-container">
+                    <div id="accounts-Exit"> <CloseIcon></CloseIcon> </div>
+                </div>
+                <div className="accounts-title">
+                    <h2>
+                        Login
+                    </h2>
+                    <p1 className="Portal-description">Log into your account </p1>
+                </div>
+                <div className="input-group">
+                    <PersonIcon fontSize='large' className="input-icon"> </PersonIcon>  <TextField className="accountsLogin" placeholder='Username'> </TextField>
+                </div>
+                <div className="input-group">
+                    <PasswordIcon fontSize='large' className="input-icon"> </PasswordIcon> <TextField className="accountsLogin" placeholder='Password'>  </TextField>
                 </div>
 
-                <div className="Signup">
-                    <div className="accounts-title">
-                        <h2>
-                            Sign up
-                        </h2>
-                        <TextField className="accountsSignup" placeholder='Email'>  </TextField>
-                        <TextField className="accountsSignup" placeholder='Password'>  </TextField>
-
-                    </div>
+                <div className="accounts-title">
+                    <h2>
+                        Create a free Account
+                    </h2>
+                    <p1 className="Portal-description">
+                        To use this app fully, 
+                        we encourage you to create a free account, 
+                        so you can enjoy all features on offer.</p1>
                 </div>
+                <div className="input-group">
+                    <MailIcon fontSize='large' className="input-icon"> </MailIcon>  <TextField className="accountsSignup" placeholder='Email'> </TextField>
+                </div>
+                <div className="input-group">
+                    <PasswordIcon fontSize='large' className="input-icon"> </PasswordIcon> <TextField className="accountsSignup" placeholder='Password'>  </TextField>
+                </div>
+
 
                 <div className="PortalButtons">
                     <Button className="accountsButton"> Log In </Button>
                     <Button className="accountsButton"> Sign Up </Button>
                 </div>
-
             </div>
-            <div className="Portal-right">
-
-            </div>
-
         </div>
     );
 }
