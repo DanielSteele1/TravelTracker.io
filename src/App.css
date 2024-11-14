@@ -266,12 +266,13 @@ h2 {
   height: 44px !important;
   width: 250px !important;
   justify-content: center !important;
-  color: rgb(255, 90, 90) !important;
   font-family: 'Nunito', sans-serif !important;
   padding: 2px !important;
   margin: 0 auto !important;
 
 }
+
+
 
 .input-group {
 display: flex;
@@ -282,6 +283,8 @@ margin: 5px;
 .input-icon {
   margin-left: 80px;
 }
+
+
 
 #search-paper {
   display: flex;
@@ -421,25 +424,24 @@ margin: 5px;
 #Photo-Exit, #accounts-Exit {
 
   display: flex;
-  flex:1 !important;
   flex-direction: row !important;
   margin: 0 auto !important;
   justify-content: flex-end !important;
-  align-items: flex-end important;
+  align-items: flex-end !important;
   height: fit-content !important;
-  width: fit-content !important;
+  width: 50px !important;
   color: rgb(255, 90, 90) !important;
   border-radius: 15px !important;
   padding: 5px;
   font-family: 'Nunito', sans-serif !important;
-  
+  position:absolute !important;
+  left: 450px;
+
 }
 
 #Photo-Exit:hover, #accounts-Exit:hover {
 
-  border: 10px black;
   cursor:pointer;
-
 }
 
 

@@ -11,6 +11,24 @@ import CloseIcon from '@mui/icons-material/Close';
 import PasswordIcon from '@mui/icons-material/Password';
 import MailIcon from '@mui/icons-material/Mail';
 
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            light: ' rgb(255, 90, 90);',
+            main: ' rgb(255, 90, 90);',
+            dark: ' rgb(255, 90, 90);',
+            contrastText: ' rgb(255, 90, 90);',
+        },
+        secondary: {
+            light: '#ff7961',
+            main: '#f44336',
+            dark: '#ba000d',
+            contrastText: '#000',
+        },
+    },
+});
 
 
 function LoginOrSignup() {
@@ -61,10 +79,47 @@ function LoginOrSignup() {
                     <p1 className="Portal-description">Log into your account </p1>
                 </div>
                 <div className="input-group">
-                    <PersonIcon fontSize='large' className="input-icon"> </PersonIcon>  <TextField className="accountsLogin" placeholder='Username'> </TextField>
+                    <PersonIcon fontSize='large' className="input-icon" />
+                    <TextField sx={{
+
+                        '& .MuiInputBase-root':
+                            { color: '#ff5a5a' },
+
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'grey', // Default
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#ff5a5a', // on hover
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#ff5a5a', // focused
+                            },
+                        },
+
+                    }}
+                        className="accountsLogin" placeholder='Username' />
                 </div>
                 <div className="input-group">
-                    <PasswordIcon fontSize='large' className="input-icon"> </PasswordIcon> <TextField className="accountsLogin" placeholder='Password'>  </TextField>
+                    <PasswordIcon fontSize='large' className="input-icon" />
+                    <TextField sx={{
+
+                        '& .MuiInputBase-root':
+                            { color: '#ff5a5a' },
+
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'grey', // Default
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#ff5a5a', // on hover
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#ff5a5a', // focused
+                            },
+                        },
+                    }}
+                        className="accountsLogin" placeholder='Password' />
                 </div>
 
                 <div className="accounts-title">
@@ -72,15 +127,55 @@ function LoginOrSignup() {
                         Create a free Account
                     </h2>
                     <p1 className="Portal-description">
-                        To use this app fully, 
-                        we encourage you to create a free account, 
+                        To use this app fully,
+                        we encourage you to create a free account,
                         so you can enjoy all features on offer.</p1>
                 </div>
                 <div className="input-group">
-                    <MailIcon fontSize='large' className="input-icon"> </MailIcon>  <TextField className="accountsSignup" placeholder='Email'> </TextField>
+                    <MailIcon fontSize='large' className="input-icon"> </MailIcon>
+                    <TextField sx={{
+                        '& .MuiInputBase-root':
+                            { color: '#ff5a5a' },
+
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'grey', // Default
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#ff5a5a', // on hover
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#ff5a5a', // focused
+                            },
+                        },
+
+                    }}
+                        className="accountsSignup" placeholder='Email' />
                 </div>
                 <div className="input-group">
-                    <PasswordIcon fontSize='large' className="input-icon"> </PasswordIcon> <TextField className="accountsSignup" placeholder='Password'>  </TextField>
+                    <PasswordIcon fontSize='large' className="input-icon"> </PasswordIcon>
+                    <TextField sx={{
+                        '& .MuiInputBase-root':
+                            { color: '#ff5a5a' },
+
+
+                        '& .MuiInputBase-root':
+                            { color: '#ff5a5a' },
+
+                        '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                                borderColor: 'grey', // Default
+                            },
+                            '&:hover fieldset': {
+                                borderColor: '#ff5a5a', // on hover
+                            },
+                            '&.Mui-focused fieldset': {
+                                borderColor: '#ff5a5a', // focused
+                            },
+                        },
+
+                    }}
+                        className="accountsSignup" placeholder='Password' />
                 </div>
 
 

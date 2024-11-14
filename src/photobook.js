@@ -3,7 +3,7 @@ import './App.css';
 import Mapbox from './map';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Box from '@mui/material/Box';
-import darkScrollbar from '@mui/material/darkScrollbar';
+import lightScrollbar from '@mui/material/darkScrollbar';
 
 import LayersIcon from '@mui/icons-material/Layers';
 
@@ -75,7 +75,7 @@ function PhotoBook() {
                 <Box className="photo-card">  <PhotoIcon> </PhotoIcon> </Box>
             </div>
 
-            <darkScrollbar> </darkScrollbar>
+            <lightScrollbar> </lightScrollbar> 
         </div>
 
     );
