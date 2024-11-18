@@ -22,12 +22,14 @@ import PartyModeIcon from '@mui/icons-material/PartyMode';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
+import AddLocationAltOutlinedIcon from '@mui/icons-material/AddLocationAltOutlined';
+import WrongLocationOutlinedIcon from '@mui/icons-material/WrongLocationOutlined';
+import EditLocationOutlinedIcon from '@mui/icons-material/EditLocationOutlined';
 //import GlobalStyles from '@mui/material/GlobalStyles';
 
 export const ThemeContext = createContext(null);
 
-function Navigation({ theme, toggleTheme, onLocateMe}) {
+function Navigation({ theme, toggleTheme, onLocateMe }) {
 
   return (
     <>
@@ -150,18 +152,48 @@ function MainMenu({ canPlaceMarker, toggleMarker }) {
       <div className="main-menu">
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker" onClick={toggleMarker}>
-            {canPlaceMarker ? 'off' : 'on'}
-            <img src="add-marker.png" />
+            <AddLocationAltOutlinedIcon sx={{
+
+              display: 'flex',
+              height: '50px',
+              width: '50px',
+              color: 'rgb(255, 90, 90)',
+              justifyContent: 'center',
+              height: 'fit-content'
+
+            }}>
+              {canPlaceMarker ? 'off' : 'on'}
+            </AddLocationAltOutlinedIcon>
           </button>
         </div>
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">
-            <img src="add-marker.png" />
+            <WrongLocationOutlinedIcon sx={{
+
+              display: 'flex',
+              height: '50px',
+              width: '50px',
+              color: 'rgb(255, 90, 90)',
+              justifyContent: 'center',
+              height: 'fit-content'
+
+            }}>
+
+            </WrongLocationOutlinedIcon>
           </button>
         </div>
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">
-            <img src="add-marker.png" />
+            <EditLocationOutlinedIcon sx={{
+
+              display: 'flex',
+              height: '50px',
+              width: '50px',
+              color: 'rgb(255, 90, 90)',
+              justifyContent: 'center',
+              height: 'fit-content'
+
+            }} />
           </button>
         </div>
         <div className="menu-item">
@@ -210,9 +242,9 @@ function App() {
   const [triggerGeolocation, setTriggerGeolocation] = useState(false);
 
   const handleLocateMe = () => {
-     
+
     setTriggerGeolocation(prev => !prev);
-  
+
   };
 
   return (

@@ -362,10 +362,10 @@ margin: 5px;
   height: fit-content;
   width: fit-content;
   z-index: 10;
-  background-color: rgba(40, 44, 52, 0.6);
+  background-color: rgba(40, 44, 52);
   color: rgb(255, 90, 90);
   top: 15%;
-  right: 93.5%;
+  right: 90.5%;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -374,27 +374,23 @@ margin: 5px;
 }
 
 .map-layer-item {
-  margin: 10px;
+  display:flex;
   color: rgb(255, 90, 90);
   font-size: 16px;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  background-color: rgba(40, 44, 52, 0.6);
   border: none;
   border-radius: 5px;
-  height: fit-content;
+  width: 125px;
+  height: 50px;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  margin: 10px;
   padding: 10px;
 }
 
-.map-layer-item:hover {
 
-
-  cursor: pointer;
-  transform: translateY(-1.5px);
-  box-shadow: rgb(255, 90, 90) 2px 1px 2px 0px;
-  transition: transform 330ms ease-in-out;
-
-}
 
 .map-layer-title {
 
