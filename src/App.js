@@ -21,21 +21,22 @@ import MapIcon from '@mui/icons-material/Map';
 import PartyModeIcon from '@mui/icons-material/PartyMode';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 //import GlobalStyles from '@mui/material/GlobalStyles';
 
 export const ThemeContext = createContext(null);
 
-function Navigation({ theme, toggleTheme }) {
+function Navigation({ theme, toggleTheme, onLocateMe}) {
 
   return (
     <>
-
       <div className="navigation">
         <div className="nav-left">
           <div className="nav-item"> <h2 class="title">TravelTracker.io</h2> </div>
         </div>
         <div className="nav-right">
+
           <div className="nav-item">
             <Box sx={{ borderColor: 'rgb(255, 90, 90)' }}>
               <Paper component="form" className="search-paper" sx={{
@@ -53,14 +54,30 @@ function Navigation({ theme, toggleTheme }) {
                 }}
                   id="search-bar" placeholder="Search a location" variant="outlined" size="small">
                 </InputBase>
-
-                <Button className="button" sx={{ display: 'flex', height: 'fit-content', width: 'fit-content' }}>
-                  <SearchIcon sx={{ justifyContent: 'center', color: 'rgb(255, 90, 90)' }}> </SearchIcon>
-                </Button>
-
               </Paper>
             </Box>
           </div>
+
+          <div className="search-button">
+            <Button className="button" sx={{ display: 'flex', height: 'fit-content', width: 'fit-content' }}>
+              <SearchIcon sx={{ justifyContent: 'center', color: 'rgb(255, 90, 90)' }}> </SearchIcon>
+            </Button>
+          </div>
+
+          <div className="nav-item">
+            <Box sx={{ borderColor: 'rgb(255, 90, 90)' }}>
+              <Button className="locate-Position" onClick={onLocateMe}>
+                <LocationOnIcon sx={{
+                  display: 'flex',
+                  color: 'rgb(255, 90, 90)',
+                  justifyContent: 'center',
+                  height: 'fit-content'
+                }}> </LocationOnIcon>
+              </Button>
+            </Box>
+
+          </div>
+
           <div className="nav-item">
             <label> {theme === "light" ? "Light" : "Dark"} </label>
             <Switch sx={{
@@ -190,12 +207,20 @@ function App() {
     console.log("canPlaceMarker is now:", !canPlaceMarker);
   };
 
+  const [triggerGeolocation, setTriggerGeolocation] = useState(false);
+
+  const handleLocateMe = () => {
+     
+    setTriggerGeolocation(prev => !prev);
+  
+  };
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
-        <Navigation theme={theme} toggleTheme={toggleTheme} />
+        <Navigation theme={theme} toggleTheme={toggleTheme} onLocateMe={handleLocateMe} />
         <div className="content">
-          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
+          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} triggerGeolocation={triggerGeolocation} />
           <MainMenu canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
           <LayerMenu />
           <PhotoBook />

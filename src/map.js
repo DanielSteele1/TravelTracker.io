@@ -2,13 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import GlobalStyles from '@mui/material/GlobalStyles';
+import { Satellite } from '@mui/icons-material';
+import { map } from 'leaflet';
 
-const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
+const Mapbox = ({ triggerGeolocation, canPlaceMarker, toggleMarker }) => {
   console.log('Props received in Mapbox:', { canPlaceMarker, toggleMarker });
 
   const mapContainerRef = useRef(null);
-  const mapRef = useRef();
+  const mapRef = useRef(null);
   const canPlaceMarkerRef = useRef(canPlaceMarker);
+
+  const geolocateControlRef = useRef(null);
+
 
   useEffect(() => {
 
@@ -24,9 +29,65 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
+      style: 'mapbox://styles/mapbox/satellite-v9',
       center: [-0.1404545, 51.5220163],
-      zoom: 2
+      zoom: 2,
+
     });
+
+    // create GeolocateControl
+    geolocateControlRef.current = new mapboxgl.GeolocateControl({
+      positionOptions: {enableHighAccuracy:true },
+      trackUserLocation: true,
+      showUserHeading: true,
+
+    });
+
+    mapRef.current.addControl(geolocateControlRef.current);
+    const controlElement = geolocateControlRef.current._container;
+    controlElement.style.display = 'none';   // hide default button
+
+    // // geolocation button 
+    // mapRef.current.addControl(
+    //   new mapboxgl.GeolocateControl({
+    //     positionOptions: {
+    //       enableHighAccuracy: true
+    //     },
+    //     trackUserLocation: true,
+    //     showUserHeading: true
+    //   })
+    // );
+
+    const toggleStyles = (layerName) => {
+
+      switch (layerName) {
+
+        case 'Normal':
+          mapRef.setStyle('mapbox://styles/mapbox/streets-v11');
+          break;
+        case 'Satellite':
+
+          mapRef.setStyle('mapbox://styles/mapbox/satellite-v9');
+          break;
+        case 'Transport':
+
+          mapRef.setStyle('mapbox://styles/mapbox/transport-v9');
+          break;
+        case 'Terrain':
+
+          mapRef.setStyle('mapbox://styles/mapbox/outdoors-v11');
+          break;
+
+        case 'Traffic':
+
+          mapRef.setStyle('mapbox://styles/mapbox/traffic-day-v2');
+          break;
+
+        default:
+          return 0;
+      }
+
+    };
 
     const geojson = {
       type: 'FeatureCollection',
@@ -72,7 +133,7 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
         var customMarker = document.createElement('div');
         customMarker.className = 'marker';
         customMarker.style.backgroundImage = 'url(/map-marker-512.png)';
-    
+
         // Create and place a new marker
         new mapboxgl.Marker(customMarker)
           .setLngLat([lng, lat])
@@ -86,12 +147,24 @@ const Mapbox = ({ canPlaceMarker, toggleMarker }) => {
     };
     mapRef.current.on('click', handleMapClick);
 
+// unmount cleanup
     return () => {
+      
       mapRef.current.off('click', handleMapClick);
+      if(mapRef.current) {
       mapRef.current.remove();
-
+      }
     };
   }, []);
+
+  useEffect(() => {
+
+    if (triggerGeolocation && geolocateControlRef.current) {
+      geolocateControlRef.current.trigger();    // activate geolocation
+    }
+
+  }, [triggerGeolocation]);
+
 
   return (
     <div
