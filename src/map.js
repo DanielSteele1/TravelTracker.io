@@ -5,7 +5,7 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import { Satellite } from '@mui/icons-material';
 import { map } from 'leaflet';
 
-const Mapbox = ({ triggerGeolocation, canPlaceMarker, toggleMarker }) => {
+const Mapbox = ({ triggerGeolocation, canPlaceMarker, toggleMarker, layer }) => {
   console.log('Props received in Mapbox:', { canPlaceMarker, toggleMarker });
 
   const mapContainerRef = useRef(null);
@@ -37,7 +37,7 @@ const Mapbox = ({ triggerGeolocation, canPlaceMarker, toggleMarker }) => {
 
     // create GeolocateControl
     geolocateControlRef.current = new mapboxgl.GeolocateControl({
-      positionOptions: {enableHighAccuracy:true },
+      positionOptions: { enableHighAccuracy: true },
       trackUserLocation: true,
       showUserHeading: true,
 
@@ -58,36 +58,48 @@ const Mapbox = ({ triggerGeolocation, canPlaceMarker, toggleMarker }) => {
     //   })
     // );
 
-    const toggleStyles = (layerName) => {
+    // unmount cleanup
 
-      switch (layerName) {
+  }, []);
 
+
+  useEffect(() => {
+    if (mapRef.current) {
+      switch (layer) {
         case 'Normal':
-          mapRef.setStyle('mapbox://styles/mapbox/streets-v11');
+          mapRef.current.setStyle('mapbox://styles/mapbox/streets-v11');
+          console.log("Layer changed to Normal");
           break;
         case 'Satellite':
-
-          mapRef.setStyle('mapbox://styles/mapbox/satellite-v9');
+          mapRef.current.setStyle('mapbox://styles/mapbox/satellite-v9');
+          console.log("Layer changed to Satellite");
           break;
-        case 'Transport':
-
-          mapRef.setStyle('mapbox://styles/mapbox/transport-v9');
+        case 'Roads':
+          mapRef.current.setStyle('mapbox://styles/mapbox/navigation-day-v1');
+          console.log("Layer changed to Roads");
           break;
         case 'Terrain':
-
-          mapRef.setStyle('mapbox://styles/mapbox/outdoors-v11');
+          mapRef.current.setStyle('mapbox://styles/mapbox/outdoors-v11');
+          console.log("Layer changed to Terrain");
           break;
-
         case 'Traffic':
-
-          mapRef.setStyle('mapbox://styles/mapbox/traffic-day-v2');
+          mapRef.current.setStyle('mapbox://styles/mapbox/traffic-day-v2');
+          console.log("Layer changed to Traffic");
           break;
-
+        case 'Streets':
+          mapRef.current.setStyle('mapbox://styles/mapbox/streets-v12');
+          console.log("Layer changed to Streets");
+          break;
         default:
-          return 0;
+          console.warn('Unknown layer:', layer);
+          break;
       }
+    }
+  }, [layer]);
 
-    };
+
+
+  useEffect(() => {
 
     const geojson = {
       type: 'FeatureCollection',
@@ -147,14 +159,14 @@ const Mapbox = ({ triggerGeolocation, canPlaceMarker, toggleMarker }) => {
     };
     mapRef.current.on('click', handleMapClick);
 
-// unmount cleanup
     return () => {
-      
+
       mapRef.current.off('click', handleMapClick);
-      if(mapRef.current) {
-      mapRef.current.remove();
+      if (mapRef.current) {
+        mapRef.current.remove();
       }
     };
+
   }, []);
 
   useEffect(() => {

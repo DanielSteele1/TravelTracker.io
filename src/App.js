@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import server from './server.js';
 
 import Mapbox from './map';
 import LayerMenu from './layer-menu';
@@ -247,14 +246,16 @@ function App() {
 
   };
 
+  const [selectedLayer, setSelectedLayer] = useState('Normal');
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
         <Navigation theme={theme} toggleTheme={toggleTheme} onLocateMe={handleLocateMe} />
         <div className="content">
-          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} triggerGeolocation={triggerGeolocation} />
+          <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} triggerGeolocation={triggerGeolocation} layer={selectedLayer} />
           <MainMenu canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
-          <LayerMenu />
+          <LayerMenu onLayerChange={setSelectedLayer}/>    // pass the callback to layermenu
           <PhotoBook />
           <LoginOrSignup />
 
