@@ -19,7 +19,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import MapIcon from '@mui/icons-material/Map';
 import PartyModeIcon from '@mui/icons-material/PartyMode';
 import SearchIcon from '@mui/icons-material/Search';
-import CloseIcon from '@mui/icons-material/Close';
+//import CloseIcon from '@mui/icons-material/Close';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AddLocationAltOutlinedIcon from '@mui/icons-material/AddLocationAltOutlined';
 import WrongLocationOutlinedIcon from '@mui/icons-material/WrongLocationOutlined';
@@ -45,24 +45,40 @@ function Navigation({ theme, toggleTheme, onLocateMe }) {
                 height: 'fit-content', width: 'fit-content',
                 display: 'flex', alignItems: 'center',
                 color: 'rgb(255, 90, 90)',
-                backgroundColor: 'rgba(40, 44, 52)'
+                backgroundColor: 'rgba(40, 44, 52)',
+                justifyContent: 'center',
+                border: '2px solid rgb(255, 90, 90)',
+                paddingLeft: '10px',
+                borderRadius: '10px',
+                marginBottom: '5px', marginTop: '5px'  
+
               }} >
 
                 <InputBase disabled={false} sx={{
                   fontFamily: 'Nunito, sans-serif',
-                  textalign: 'center', margin: '0 auto', p: '5px',
-                  color: 'rgb(255, 90, 90)', width: 'fit-content'
+                  textalign: 'center', margin: '0 auto',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingTop: '5px',
+                  color: 'rgb(255, 90, 90)', width: 'fit-content',
+
                 }}
-                  id="search-bar" placeholder="Search a location" variant="outlined" size="small">
+                  id="search-bar" placeholder="Search a location..." variant="outlined" size="small">
                 </InputBase>
+
+                <div className="search-button">
+                  <Button className="button" sx={{ display: 'flex', height: 'fit-content', width: 'fit-content' }}>
+                    <SearchIcon sx={{
+                      justifyContent: 'center', color: 'rgb(255, 90, 90)',
+                      border: '2px solid rgb(255, 90, 90)',
+                      padding: '1px',
+                      borderRadius: '10px'
+                    }}> </SearchIcon>
+                  </Button>
+                </div>
+
               </Paper>
             </Box>
-          </div>
-
-          <div className="search-button">
-            <Button className="button" sx={{ display: 'flex', height: 'fit-content', width: 'fit-content' }}>
-              <SearchIcon sx={{ justifyContent: 'center', color: 'rgb(255, 90, 90)' }}> </SearchIcon>
-            </Button>
           </div>
 
           <div className="nav-item">
@@ -72,7 +88,11 @@ function Navigation({ theme, toggleTheme, onLocateMe }) {
                   display: 'flex',
                   color: 'rgb(255, 90, 90)',
                   justifyContent: 'center',
-                  height: 'fit-content'
+                  height: 'fit-content',
+                  border: '2px solid rgb(255, 90, 90)',
+                  padding: '5px',
+                  borderRadius: '10px'
+
                 }}> </LocationOnIcon>
               </Button>
             </Box>
@@ -87,6 +107,7 @@ function Navigation({ theme, toggleTheme, onLocateMe }) {
                 color: 'rgb(255, 90, 90)',
                 '& + .MuiSwitch-track': {
                   backgroundColor: 'rgb(255, 90, 90)',
+
                 },
               },
               '& .MuiSwitch-switchBase': {
@@ -154,8 +175,8 @@ function MainMenu({ canPlaceMarker, toggleMarker }) {
             <AddLocationAltOutlinedIcon sx={{
 
               display: 'flex',
-              height: '50px',
-              width: '50px',
+              height: '40px',
+              width: '40px',
               color: 'rgb(255, 90, 90)',
               justifyContent: 'center',
               height: 'fit-content'
@@ -170,8 +191,8 @@ function MainMenu({ canPlaceMarker, toggleMarker }) {
             <WrongLocationOutlinedIcon sx={{
 
               display: 'flex',
-              height: '50px',
-              width: '50px',
+              height: '40px',
+              width: '40px',
               color: 'rgb(255, 90, 90)',
               justifyContent: 'center',
               height: 'fit-content'
@@ -186,8 +207,8 @@ function MainMenu({ canPlaceMarker, toggleMarker }) {
             <EditLocationOutlinedIcon sx={{
 
               display: 'flex',
-              height: '50px',
-              width: '50px',
+              height: '40px',
+              width: '40px',
               color: 'rgb(255, 90, 90)',
               justifyContent: 'center',
               height: 'fit-content'
@@ -197,17 +218,17 @@ function MainMenu({ canPlaceMarker, toggleMarker }) {
         </div>
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">
-            <img src="add-marker.png" />
+            <img src="" />
           </button>
         </div>
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">
-            <img src="add-marker.png" />
+            <img src="" />
           </button>
         </div>
         <div className="menu-item">
           <button id="add-marker" title="Add a Marker" alt="add-marker">
-            <img src="add-marker.png" />
+            <img src="" />
           </button>
         </div>
       </div>
@@ -255,7 +276,7 @@ function App() {
         <div className="content">
           <Mapbox canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} triggerGeolocation={triggerGeolocation} layer={selectedLayer} />
           <MainMenu canPlaceMarker={canPlaceMarker} toggleMarker={toggleMarker} />
-          <LayerMenu onLayerChange={setSelectedLayer}/>    // pass the callback to layermenu
+          <LayerMenu onLayerChange={setSelectedLayer} />
           <PhotoBook />
           <LoginOrSignup />
 
